@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+        .maincontainer {
+            border: 2px solid black;
+            width: 500px;
+
+            padding: 15px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="maincontainer">
+        <button type="button" onclick="usUnits">Us Units</button>
+        <button type="button" onclick="metricUnits">Metric Units</button>
+        <button type="button" onclick="otherunits"> Other Units</button>
+        <br><br>
+        Age: <input type="text"> <br><br>
+        <!-- Gender: <input type="radio"> <br><br> -->
+        height: <input type="text" id="height" placeholder="foot">
+        <input type="text" id="inche" placeholder="inches"><br><br>
+        weight: <input type="text" id="weight" placeholder="kg"> <br><br>
+        <p id="final">BMI:</p>
+        <br><br>
+        <button type="button" onclick="calculate()">Calculate BMI</button>
+        <button type="button" onclick="clearvalue()">Clear</button>
+
+        <script>
+            let feet = document.getElementById("height");
+            let inches = document.getElementById("inche");
+            let weight = document.getElementById("weight");
+            let ans = document.getElementById("final");
+
+            function calculate() {
+                let personheight = parseInt(feet.value);
+                let personinches = parseInt(inches.value);
+                let personwieght = parseInt(weight.value);
+               let convertIinches=personinches/12;
+               let heightfeet=personheight+convertIinches;
+               let meter=0.304*heightfeet;
+               let calculatebmi=personwieght/meter;
+               ans.innerText=`Anse: ${calculatebmi}`;
+                
+            }
+
+            function clearvalue()
+            {
+                feet.value = " ";
+                inches.value = " ";
+                weight.value=" ";
+                ans.innerText = " ";
+            }
+            // function clear() {
+            //     feet.value = " ";
+            //     inches.value = " ";
+            //     weight.value=" ";
+            //     ans.innerText = " ";
+            // }
+
+        </script>
+    </div>
+</body>
+
+</html>
